@@ -1,0 +1,221 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #c3ecff; 
+    margin: 0;
+    padding: 20px;
+    color: #2f3640;
+}
+
+h1 {
+    text-align: center;
+    background-color: #ffb0bc; /* bubblegum pink */
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    background-color: #fff;
+}
+
+button {
+    font-size: 0.9rem;
+    padding: 10px;
+    background-color: #94d8f5;
+    color: white;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #79df88;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+li {
+    background: #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 6px solid #ff9fac;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Buttons inside tasks */
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 0.8rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.toggle-btn {
+    background-color: #e0b5fa;
+    color: white;
+}
+
+.toggle-btn:hover {
+    background-color: #b37bea;
+}
+
+.delete-btn {
+    background-color: #fab1a0;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #e17055;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+#page-title {
+    background-color: #ffb6c1;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-size: 2rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.settings-btn {
+    background-color: #fcfcfc;
+    color: #2d3436;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+}
+
+.settings-btn:hover {
+    background-color: #fdcb6e;
+}
+
+#settings-panel {
+    text-align: center;
+    background-color: #fff0f6;
+    border: 1px solid #f8a5c2;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* dark mode */
+body.dark-mode {
+    background-color: #2f3640;
+    color: #f5f6fa;
+}
+
+body.dark-mode h1,
+body.dark-mode #page-title {
+    background-color: #57606f;
+    color: #f5f6fa;
+}
+
+body.dark-mode input[type="text"] {
+    background-color: #dcdde1;
+    color: #2f3640;
+}
+
+body.dark-mode li {
+    background: #57606f;
+    color: #ffffff;
+    border-left: 6px solid #ffa502;
+}
+
+body.dark-mode .toggle-btn {
+    background-color: #a29bfe;
+}
+
+body.dark-mode .toggle-btn:hover {
+    background-color: #6c5ce7;
+}
+
+body.dark-mode .delete-btn {
+    background-color: #ff7675;
+}
+
+body.dark-mode .delete-btn:hover {
+    background-color: #d63031;
+}
+
+body.dark-mode .settings-btn,
+body.dark-mode .theme-btn {
+    background-color: #747d8c;
+    color: #ffffff;
+}
+
+body.dark-mode .settings-btn:hover,
+body.dark-mode .theme-btn:hover {
+    background-color: #57606f;
+}
+
+body.dark-mode #settings-panel {
+    background-color: #3d3d3d;
+    border-color: #636e72;
+    color: #fff;
+}
+.theme-btn {
+    background-color: #a29bfe;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.theme-btn:hover {
+    background-color: #6c5ce7;
+}
