@@ -1,9 +1,9 @@
-# 🌸 MUST FINISH TODAY! - A Cute One-Day To-Do List 🐇
+# MUST FINISH TODAY! - A One-Day To-Do List
 This is a pastel-themed Django app to help you stay focused
 
 You can add tasks that MUST be completed *today* only — no backlog, no stress.
 
-## ✨ Features
+## Features
 - Add tasks
 - Mark tasks as done
 - Delete tasks
@@ -11,9 +11,9 @@ You can add tasks that MUST be completed *today* only — no backlog, no stress.
 - Custom pastel theme
 - Settings panel with customizable header & background
 
-## 📸 Demo
+## Demo
 
 Coming soon!
 
 ## 🛠 How to Run It
-open https://must-finish-today.onrender.com/
+visit https://must-finish-today.onrender.com/
