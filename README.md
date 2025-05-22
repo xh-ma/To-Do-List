@@ -1,7 +1,7 @@
 # MUST FINISH TODAY! - A One-Day To-Do List
 This is a pastel-themed Django app to help you stay focused
 
-You can add tasks that MUST be completed *today* only — no backlog, no stress.
+You can add tasks that MUST be completed *today* only.
 
 ## Features
 - Add tasks
