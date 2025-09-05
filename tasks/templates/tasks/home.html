@@ -56,8 +56,18 @@
             settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
         });
 
-        document.getElementById('bg-color').addEventListener('input', (e) => {
+        // Load saved background color on page load
+        const bgColorInput = document.getElementById('bg-color');
+        const savedBgColor = localStorage.getItem('bgColor');
+        if (savedBgColor) {
+            document.body.style.backgroundColor = savedBgColor;
+            bgColorInput.value = savedBgColor;
+        }
+
+        // Save background color to localStorage when changed
+        bgColorInput.addEventListener('input', (e) => {
             document.body.style.backgroundColor = e.target.value;
+            localStorage.setItem('bgColor', e.target.value);
         });
 
         document.getElementById('header-color').addEventListener('input', (e) => {
