@@ -60,6 +60,31 @@
         const bgColorInput = document.getElementById('bg-color');
         const headerColorInput = document.getElementById('header-color');
         const pageTitle = document.getElementById('page-title');
+
+         // Define your preferred colors for dark and light mode
+        const DARK_BG = '#222831';
+        const DARK_HEADER = '#393e46';
+        const LIGHT_BG = '#d0f0fd';
+        const LIGHT_HEADER = '#ffb6c1';
+
+        function setColors(bg, header) {
+            document.body.style.backgroundColor = bg;
+            pageTitle.style.backgroundColor = header;
+            bgColorInput.value = bg;
+            headerColorInput.value = header;
+        }
+
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '🌞';
+            setColors(DARK_BG, DARK_HEADER);
+        } else {
+            themeToggle.textContent = '🌙';
+            setColors(LIGHT_BG, LIGHT_HEADER);
+        }
+
+        // If user has custom colors, override the mode colors
         const savedBgColor = localStorage.getItem('bgColor');
         if (savedBgColor) {
             document.body.style.backgroundColor = savedBgColor;
@@ -70,14 +95,6 @@
         if (savedHeaderColor) {
             pageTitle.style.backgroundColor = savedHeaderColor;
             headerColorInput.value = savedHeaderColor;
-        }
-
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode === 'true') {
-            document.body.classList.add('dark-mode');
-            themeToggle.textContent = '🌞';
-        } else {
-            themeToggle.textContent = '🌙';
         }
 
         // Save background color to localStorage when changed
@@ -97,6 +114,11 @@
             const isDark = document.body.classList.toggle('dark-mode');
             themeToggle.textContent = isDark ? '🌞' : '🌙';
             localStorage.setItem('darkMode', isDark);
+            if (isDark) {
+                setColors(DARK_BG, DARK_HEADER);
+            } else {
+                setColors(LIGHT_BG, LIGHT_HEADER);
+            }
         });
     </script>
 </body>
