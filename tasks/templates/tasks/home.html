@@ -75,26 +75,15 @@
         }
 
         const savedDarkMode = localStorage.getItem('darkMode');
+        const savedBgColor = localStorage.getItem('bgColor');
+        const savedHeaderColor = localStorage.getItem('headerColor');
         if (savedDarkMode === 'true') {
             document.body.classList.add('dark-mode');
             themeToggle.textContent = '🌞';
-            setColors(DARK_BG, DARK_HEADER);
+            setColors(savedBgColor || DARK_BG, savedHeaderColor || DARK_HEADER);
         } else {
             themeToggle.textContent = '🌙';
-            setColors(LIGHT_BG, LIGHT_HEADER);
-        }
-
-        // If user has custom colors, override the mode colors
-        const savedBgColor = localStorage.getItem('bgColor');
-        if (savedBgColor) {
-            document.body.style.backgroundColor = savedBgColor;
-            bgColorInput.value = savedBgColor;
-        }
-
-        const savedHeaderColor = localStorage.getItem('headerColor');
-        if (savedHeaderColor) {
-            pageTitle.style.backgroundColor = savedHeaderColor;
-            headerColorInput.value = savedHeaderColor;
+            setColors(savedBgColor || LIGHT_BG, savedHeaderColor || LIGHT_HEADER);
         }
 
         // Save background color to localStorage when changed
@@ -109,15 +98,19 @@
             localStorage.setItem('headerColor', e.target.value);
         });
 
-        // Save dark mode state to localStorage when toggled
+        // Save dark mode state and colors to localStorage when toggled
         themeToggle.addEventListener('click', () => {
             const isDark = document.body.classList.toggle('dark-mode');
             themeToggle.textContent = isDark ? '🌞' : '🌙';
             localStorage.setItem('darkMode', isDark);
             if (isDark) {
                 setColors(DARK_BG, DARK_HEADER);
+                localStorage.setItem('bgColor', DARK_BG);
+                localStorage.setItem('headerColor', DARK_HEADER);
             } else {
                 setColors(LIGHT_BG, LIGHT_HEADER);
+                localStorage.setItem('bgColor', LIGHT_BG);
+                localStorage.setItem('headerColor', LIGHT_HEADER);
             }
         });
     </script>
