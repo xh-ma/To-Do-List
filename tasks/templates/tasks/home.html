@@ -56,12 +56,28 @@
             settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
         });
 
-        // Load saved background color on page load
+        // Load saved background color, header color, and dark mode on page load
         const bgColorInput = document.getElementById('bg-color');
+        const headerColorInput = document.getElementById('header-color');
+        const pageTitle = document.getElementById('page-title');
         const savedBgColor = localStorage.getItem('bgColor');
         if (savedBgColor) {
             document.body.style.backgroundColor = savedBgColor;
             bgColorInput.value = savedBgColor;
+        }
+
+        const savedHeaderColor = localStorage.getItem('headerColor');
+        if (savedHeaderColor) {
+            pageTitle.style.backgroundColor = savedHeaderColor;
+            headerColorInput.value = savedHeaderColor;
+        }
+
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '🌞';
+        } else {
+            themeToggle.textContent = '🌙';
         }
 
         // Save background color to localStorage when changed
@@ -70,13 +86,17 @@
             localStorage.setItem('bgColor', e.target.value);
         });
 
-        document.getElementById('header-color').addEventListener('input', (e) => {
-            document.getElementById('page-title').style.backgroundColor = e.target.value;
+        // Save header color to localStorage when changed
+        headerColorInput.addEventListener('input', (e) => {
+            pageTitle.style.backgroundColor = e.target.value;
+            localStorage.setItem('headerColor', e.target.value);
         });
 
+        // Save dark mode state to localStorage when toggled
         themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+            const isDark = document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = isDark ? '🌞' : '🌙';
+            localStorage.setItem('darkMode', isDark);
         });
     </script>
 </body>
